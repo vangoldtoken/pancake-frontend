@@ -57,7 +57,7 @@ const HistoryChart: React.FC<HistoryChartProps> = ({ showLast }) => {
         label: 'Burned',
         data: getDataArray('burned'),
         yAxisID: 'y-axis-burned',
-        ...lineStyles({ color: '#1FC7D4' }),
+        ...lineStyles({ color: '#000000' }),
       },
     ],
   }
@@ -100,7 +100,7 @@ const HistoryChart: React.FC<HistoryChartProps> = ({ showLast }) => {
             type: 'linear',
             position: 'right',
             id: 'y-axis-burned',
-            ...axesStyles({ color: '#1FC7D4', lineHeight: 1.5 }),
+            ...axesStyles({ color: '#000000', lineHeight: 1.5 }),
           },
         ],
         xAxes: [
