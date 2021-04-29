@@ -33,7 +33,7 @@ const tokens = {
     projectLink: 'https://vangold.finance/',
   },
 
-  busd: {
+  weth: {
     symbol: 'VGD',
     address: {
       56: '0xfd91fa8fab5ca11569e256fa8844bc2abecc331d',
