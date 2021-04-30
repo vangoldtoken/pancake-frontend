@@ -91,41 +91,7 @@ const LotteryCard = () => {
 
   const [onPresentBuy] = useModal(<BuyTicketModal max={cakeBalance} />)
 
-  return (
-    <StyledLotteryCard>
-      <CardBody>
-        <Heading size="xl" mb="24px">
-          {TranslateString(550, 'Your Lottery Winnings')}
-        </Heading>
-        <CardImage src="/images/ticket.svg" alt="cake logo" width={64} height={64} />
-        <Block>
-          <Label>{TranslateString(552, 'VGD to Collect')}:</Label>
-          <CakeWinnings claimAmount={claimAmount} />
-        </Block>
-        <Block>
-          <Label>{TranslateString(554, 'Total jackpot this round')}:</Label>
-          <LotteryJackpot />
-        </Block>
-        {account ? (
-          <Actions>
-            <Button
-              id="dashboard-collect-winnings"
-              disabled={getBalanceNumber(claimAmount) === 0 || requestClaim}
-              onClick={handleClaim}
-              style={{ marginRight: '8px' }}
-            >
-              {TranslateString(556, 'Collect Winnings')}
-            </Button>
-            {renderLotteryTicketButtonBuyOrApprove()}
-          </Actions>
-        ) : (
-          <Actions>
-            <UnlockButton width="100%" />
-          </Actions>
-        )}
-      </CardBody>
-    </StyledLotteryCard>
-  )
+  
 }
 
 export default LotteryCard
