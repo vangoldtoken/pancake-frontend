@@ -17,7 +17,7 @@ const MigrationV2 = () => {
     >
       <Box ml="48px">
         <Text color="warning" bold>
-         
+         VANGOLDSWAP
         </Text>
         <Text color="white" mb="16px">
           Vangold swap is almost open for Farming and Staking
