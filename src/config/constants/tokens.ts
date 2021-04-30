@@ -12,6 +12,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
   },
+  vgd: {
+    symbol: 'VGD',
+    address: {
+      56: '0xfd91fa8fab5ca11569e256fa8844bc2abecc331d',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: 'https://pancakeswap.finance/',
+  },
   txl: {
     symbol: 'TXL',
     address: {
