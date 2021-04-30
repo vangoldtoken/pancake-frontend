@@ -13,7 +13,7 @@ const Menu = (props) => {
   const { login, logout } = useAuth()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = usePriceCakeBusd()
+  const cakePriceUsd = usePriceVgdBusd()
   const { profile } = useProfile()
 
   return (
