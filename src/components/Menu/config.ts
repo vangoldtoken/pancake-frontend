@@ -33,24 +33,9 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   {
-    label: 'Prediction',
-    icon: 'PredictionsIcon',
-    href: '/prediction',
-  },
-  {
     label: 'Lottery',
     icon: 'TicketIcon',
     href: '/lottery',
-  },
-  {
-    label: 'Collectibles',
-    icon: 'NftIcon',
-    href: '/collectibles',
-  },
-  {
-    label: 'Team Battle',
-    icon: 'TeamBattleIcon',
-    href: '/competition',
   },
   {
     label: 'Teams & Profile',
