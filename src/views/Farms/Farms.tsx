@@ -7,7 +7,7 @@ import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceCakeBusd, useGetApiPrices } from 'state/hooks'
+import { useFarms, usePriceVgdBusd, useGetApiPrices } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import usePersistState from 'hooks/usePersistState'
@@ -108,9 +108,9 @@ const Farms: React.FC = () => {
   const { pathname } = useLocation()
   const TranslateString = useI18n()
   const { data: farmsLP, userDataLoaded } = useFarms()
-  const cakePrice = usePriceCakeBusd()
+  const vgdPrice = usePriceVgdBusd()
   const [query, setQuery] = useState('')
-  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, 'pancake_farm_view')
+  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, 'vangold_farm_view')
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
   const prices = useGetApiPrices()
@@ -175,7 +175,7 @@ const Farms: React.FC = () => {
 
         const quoteTokenPriceUsd = prices[getAddress(farm.quoteToken.address).toLowerCase()]
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-        const apr = isActive ? getFarmApr(farm.poolWeight, cakePrice, totalLiquidity) : 0
+        const apr = isActive ? getFarmApr(farm.poolWeight, vgdPrice, totalLiquidity) : 0
 
         return { ...farm, apr, liquidity: totalLiquidity }
       })
@@ -188,7 +188,7 @@ const Farms: React.FC = () => {
       }
       return farmsToDisplayWithAPR
     },
-    [cakePrice, prices, query, isActive],
+    [vgdPrice, prices, query, isActive],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -271,7 +271,7 @@ const Farms: React.FC = () => {
     const { token, quoteToken } = farm
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
-    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
+    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('VANGOLD', '')
 
     const row: RowProps = {
       apr: {
@@ -280,7 +280,7 @@ const Farms: React.FC = () => {
         lpLabel,
         tokenAddress,
         quoteTokenAddress,
-        cakePrice,
+        vgdPrice,
         originalValue: farm.apr,
       },
       farm: {
@@ -339,17 +339,17 @@ const Farms: React.FC = () => {
         <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} />
+              <FarmCard key={farm.pid} farm={farm} vgdPrice={vgdPrice} account={account} removed={false} />
             ))}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} vgdPrice={vgdPrice} account={account} removed />
             ))}
           </Route>
           <Route exact path={`${path}/archived`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} vgdPrice={vgdPrice} account={account} removed />
             ))}
           </Route>
         </FlexLayout>
@@ -421,7 +421,7 @@ const Farms: React.FC = () => {
         </ControlContainer>
         {renderContent()}
         <div ref={loadMoreRef} />
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <StyledImage src="/images/3dpan.png" alt="Vangold illustration" width={120} height={103} />
       </Page>
     </>
   )
