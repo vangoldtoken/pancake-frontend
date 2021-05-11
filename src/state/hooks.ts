@@ -179,7 +179,8 @@ export const useGetApiPrice = (address: string) => {
 
 export const usePriceVgdBusd = (): BigNumber => {
   const ZERO = new BigNumber(0)
-  const vgdBnbFarm = useFarmFromPid(1)
+  const vgdBnbFarm = useFarmFromPid(234)
+  const cakeBnbFarm = useFarmFromPid(1)
   const bnbBusdFarm = useFarmFromPid(2)
 
   const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
