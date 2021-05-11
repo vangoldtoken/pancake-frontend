@@ -24,7 +24,7 @@ const CakeStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getVgdAddress()))
-  const vgdSupply = totalSupply ? getBalanceNumber(totalSupply) 
+  const vgdSupply = totalSupply
 
   return (
     <StyledCakeStats>
