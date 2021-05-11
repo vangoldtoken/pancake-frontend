@@ -4,7 +4,7 @@ import { useWeb3React } from '@web3-react/core'
 import BigNumber from 'bignumber.js'
 import useI18n from 'hooks/useI18n'
 import useAllEarnings from 'hooks/useAllEarnings'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceVgdBusd } from 'state/hooks'
 import styled from 'styled-components'
 import { DEFAULT_TOKEN_DECIMAL } from 'config'
 import CardValue from './CardValue'
@@ -25,8 +25,8 @@ const CakeHarvestBalance = () => {
     }
     return accum + earningNumber.div(DEFAULT_TOKEN_DECIMAL).toNumber()
   }, 0)
-  const cakePriceBusd = usePriceCakeBusd()
-  const earningsBusd = new BigNumber(earningsSum).multipliedBy(cakePriceBusd).toNumber()
+  const vgdPriceBusd = usePriceVgdBusd()
+  const earningsBusd = new BigNumber(earningsSum).multipliedBy(vgdPriceBusd).toNumber()
 
   if (!account) {
     return (
@@ -39,7 +39,7 @@ const CakeHarvestBalance = () => {
   return (
     <Block>
       <CardValue value={earningsSum} lineHeight="1.5" />
-      {!cakePriceBusd.eq(0) && <CardBusdValue value={earningsBusd} />}
+      {!vgdPriceBusd.eq(0) && <CardBusdValue value={earningsBusd} />}
     </Block>
   )
 }

@@ -3,7 +3,7 @@ import { Text } from '@pancakeswap-libs/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalRewards } from 'hooks/useTickets'
 import useI18n from 'hooks/useI18n'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceVgdBusd } from 'state/hooks'
 import { BigNumber } from 'bignumber.js'
 import CardBusdValue from './CardBusdValue'
 
@@ -14,15 +14,15 @@ const LotteryJackpot = () => {
   const lotteryPrizeAmountCake = balance.toLocaleString(undefined, {
     maximumFractionDigits: 2,
   })
-  const cakePriceBusd = usePriceCakeBusd()
-  const lotteryPrizeAmountBusd = new BigNumber(balance).multipliedBy(cakePriceBusd).toNumber()
+  const vgdPriceBusd = usePriceVgdBusd()
+  const lotteryPrizeAmountBusd = new BigNumber(balance).multipliedBy(vgdPriceBusd).toNumber()
 
   return (
     <>
       <Text bold fontSize="24px" style={{ lineHeight: '1.5' }}>
-        {TranslateString(999, `${lotteryPrizeAmountCake} CAKE`, { amount: lotteryPrizeAmountCake })}
+        {TranslateString(999, `${lotteryPrizeAmountCake} VGD`, { amount: lotteryPrizeAmountCake })}
       </Text>
-      {!cakePriceBusd.eq(0) ? <CardBusdValue value={lotteryPrizeAmountBusd} /> : <br />}
+      {!vgdPriceBusd.eq(0) ? <CardBusdValue value={lotteryPrizeAmountBusd} /> : <br />}
     </>
   )
 }
