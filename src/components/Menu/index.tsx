@@ -5,7 +5,7 @@ import { allLanguages } from 'config/localisation/languageCodes'
 import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
 import useAuth from 'hooks/useAuth'
-import { usePriceCakeBusd, useProfile } from 'state/hooks'
+import { usePriceVgdBusd, useProfile } from 'state/hooks'
 import config from './config'
 
 const Menu = (props) => {
@@ -13,7 +13,7 @@ const Menu = (props) => {
   const { login, logout } = useAuth()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = usePriceCakeBusd()
+  const vgdPriceUsd = usePriceVgdBusd()
   const { profile } = useProfile()
 
   return (

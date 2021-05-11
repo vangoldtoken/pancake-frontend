@@ -177,15 +177,16 @@ export const useGetApiPrice = (address: string) => {
   return prices[address.toLowerCase()]
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
+export const usePriceVgdBusd = (): BigNumber => {
   const ZERO = new BigNumber(0)
   const cakeBnbFarm = useFarmFromPid(1)
   const bnbBusdFarm = useFarmFromPid(2)
 
   const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
   const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
+  const vgdBusdPrice = vgdBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(vgdBnbFarm.tokenPriceVsQuote) : ZERO
 
-  return cakeBusdPrice
+  return vgdBusdPrice
 }
 
 // Block
