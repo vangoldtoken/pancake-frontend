@@ -25,12 +25,12 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: '/farms',
+    href: '/views/farms',
   },
   {
     label: 'Pools',
     icon: 'PoolIcon',
-    href: '/pools',
+    href: '/views/pools',
   },
   {
     label: 'Teams & Profile',
