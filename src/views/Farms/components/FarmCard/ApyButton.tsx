@@ -6,17 +6,17 @@ import useI18n from 'hooks/useI18n'
 
 export interface ApyButtonProps {
   lpLabel?: string
-  cakePrice?: BigNumber
+  vgdPrice?: BigNumber
   apr?: number
   addLiquidityUrl?: string
 }
 
-const ApyButton: React.FC<ApyButtonProps> = ({ lpLabel, cakePrice, apr, addLiquidityUrl }) => {
+const ApyButton: React.FC<ApyButtonProps> = ({ lpLabel, vgdPrice, apr, addLiquidityUrl }) => {
   const TranslateString = useI18n()
   const [onPresentApyModal] = useModal(
     <ApyCalculatorModal
       linkLabel={`${TranslateString(999, 'Get')} ${lpLabel}`}
-      tokenPrice={cakePrice.toNumber()}
+      tokenPrice={vgdPrice.toNumber()}
       apr={apr}
       linkHref={addLiquidityUrl}
     />,
